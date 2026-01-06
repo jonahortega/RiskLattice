@@ -1,0 +1,28 @@
+═══════════════════════════════════════════════════════════
+EXACT COMMANDS TO RUN (COPY AND PASTE):
+═══════════════════════════════════════════════════════════
+
+Step 1: Go to your project folder
+───────────────────────────────────────────────────────────
+cd /Users/jonahortega/risklattice
+
+
+Step 2: Add your API key to .env file
+───────────────────────────────────────────────────────────
+echo "ALPHAVANTAGE_API_KEY=NWJU54WY5G4QKOCD" >> .env
+
+
+Step 3: Verify it was added (optional - check what's in .env)
+───────────────────────────────────────────────────────────
+cat .env
+
+
+Step 4: Restart Docker
+───────────────────────────────────────────────────────────
+docker-compose up --build
+
+
+═══════════════════════════════════════════════════════════
+THAT'S IT! Then wait 2-3 minutes and test it!
+═══════════════════════════════════════════════════════════
+

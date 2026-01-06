@@ -1,0 +1,75 @@
+STEP-BY-STEP INSTRUCTIONS (LIKE YOU'RE 5):
+
+═══════════════════════════════════════════════════════════
+STEP 1: GET YOUR FREE API KEY
+═══════════════════════════════════════════════════════════
+
+1. Open your web browser (Chrome, Safari, etc.)
+
+2. Go to this website:
+   https://www.alphavantage.co/support/#api-key
+
+3. You'll see a form. Fill it out:
+   - First Name: (type your first name)
+   - Last Name: (type your last name)
+   - Email: (type your email)
+   - Organization: (leave blank or type "Personal")
+
+4. Click the orange button that says "GET FREE API KEY"
+
+5. Check your email (check spam folder too!)
+
+6. You'll get an email with your API key
+   It looks like: ABC123XYZ789 (long string of letters/numbers)
+
+7. COPY THAT KEY - you'll need it in Step 2!
+
+
+═══════════════════════════════════════════════════════════
+STEP 2: ADD THE KEY TO YOUR PROJECT
+═══════════════════════════════════════════════════════════
+
+Open Terminal and type these commands ONE BY ONE:
+
+1. Type this and press Enter:
+   cd /Users/jonahortega/risklattice
+
+2. Type this (but replace YOUR_KEY_HERE with your actual key):
+   echo "ALPHAVANTAGE_API_KEY=YOUR_KEY_HERE" >> .env
+
+   Example: If your key is ABC123XYZ789, type:
+   echo "ALPHAVANTAGE_API_KEY=ABC123XYZ789" >> .env
+
+3. Press Enter
+
+
+═══════════════════════════════════════════════════════════
+STEP 3: RESTART DOCKER
+═══════════════════════════════════════════════════════════
+
+1. In Terminal, press Ctrl + C (to stop Docker)
+
+2. Type this and press Enter:
+   docker-compose up --build
+
+3. Wait 2-3 minutes for it to build
+
+
+═══════════════════════════════════════════════════════════
+STEP 4: TEST IT!
+═══════════════════════════════════════════════════════════
+
+1. Open your browser
+2. Go to: http://localhost:3000
+3. Click "Refresh All" button
+4. Wait 30 seconds
+5. You should see REAL DATA! 🎉
+
+
+═══════════════════════════════════════════════════════════
+THAT'S IT! YOU'RE DONE!
+═══════════════════════════════════════════════════════════
+
+If you see errors, check the Terminal for messages.
+If it says "ALPHAVANTAGE_API_KEY not set", go back to Step 2!
+
