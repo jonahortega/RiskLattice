@@ -8,9 +8,6 @@ interface MarkdownRendererProps {
 export function MarkdownRenderer({ content, className = '' }: MarkdownRendererProps) {
   // Simple markdown parser for basic formatting
   const parseMarkdown = (text: string): React.ReactNode[] => {
-    const parts: React.ReactNode[] = []
-    let currentIndex = 0
-    
     // Split by double newlines first for paragraphs
     const paragraphs = text.split(/\n\n+/)
     

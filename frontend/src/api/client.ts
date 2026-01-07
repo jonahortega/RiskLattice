@@ -1,8 +1,8 @@
 import axios from 'axios'
 import { getSessionId } from '../utils/session'
 
-// Always use localhost:8000/api for the API
-const API_URL = 'http://localhost:8000/api'
+// Use environment variable for production, localhost for development
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000/api'
 
 export const apiClient = axios.create({
   baseURL: API_URL,

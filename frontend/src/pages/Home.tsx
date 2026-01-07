@@ -4,6 +4,9 @@ import { CompanyLogo } from '../components/CompanyLogo'
 import { ChatAgent } from '../components/ChatAgent'
 import { getSessionId } from '../utils/session'
 
+// Get API URL from environment variable or default to localhost
+const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000/api'
+
 interface MarketStock {
   symbol: string
   name: string
@@ -102,7 +105,7 @@ function Home() {
       for (const item of addedItemsData) {
         try {
           const sessionId = getSessionId()
-          const response = await fetch(`http://localhost:8000/api/market/quote/${item.symbol}`, {
+          const response = await fetch(`${API_URL}/market/quote/${item.symbol}`, {
             method: 'GET',
             headers: { 
               'Content-Type': 'application/json',
@@ -204,7 +207,7 @@ function Home() {
       try {
         // Get session ID
         const sessionId = getSessionId()
-        const dashboardResponse = await fetch(`http://localhost:8000/api/dashboard`, {
+        const dashboardResponse = await fetch(`${API_URL}/dashboard`, {
           method: 'GET',
           headers: { 
             'Content-Type': 'application/json',
@@ -257,7 +260,7 @@ function Home() {
               const quotePromises = stocks.map(async (stock) => {
                 try {
                   const sessionId = getSessionId()
-                  const response = await fetch(`http://localhost:8000/api/market/quote/${stock.symbol}`, {
+                  const response = await fetch(`${API_URL}/market/quote/${stock.symbol}`, {
                     method: 'GET',
                     headers: { 
                       'Content-Type': 'application/json',
@@ -297,7 +300,7 @@ function Home() {
               const missingQuotePromises = missingSymbols.map(async (symbol) => {
                 try {
                   const sessionId = getSessionId()
-                  const response = await fetch(`http://localhost:8000/api/market/quote/${symbol}`, {
+                  const response = await fetch(`${API_URL}/market/quote/${symbol}`, {
                     method: 'GET',
                     headers: { 
                       'Content-Type': 'application/json',
@@ -349,7 +352,7 @@ function Home() {
         const quotePromises = majorStockSymbols.slice(0, 20).map(async (symbol) => {
           try {
             const sessionId = getSessionId()
-            const response = await fetch(`http://localhost:8000/api/market/quote/${symbol}`, {
+            const response = await fetch(`${API_URL}/market/quote/${symbol}`, {
               method: 'GET',
               headers: { 
                 'Content-Type': 'application/json',
@@ -387,7 +390,7 @@ function Home() {
 
       // Load market news from API
       try {
-        const newsResponse = await fetch(`http://localhost:8000/api/market/news?limit=30`, {
+        const newsResponse = await fetch(`${API_URL}/market/news?limit=30`, {
           method: 'GET',
           headers: { 'Content-Type': 'application/json' }
         })

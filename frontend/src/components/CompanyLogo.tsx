@@ -61,7 +61,7 @@ export function CompanyLogo({ symbol, size = 40, className = '' }: CompanyLogoPr
     retryCountRef.current = 0
   }, [symbol])
 
-  const handleError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+  const handleError = () => {
     retryCountRef.current += 1
     
     // If Logo.dev fails, use placeholder
